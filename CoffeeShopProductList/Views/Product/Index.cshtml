@@ -1,0 +1,16 @@
+﻿@model List<Product>
+
+<ul>
+    @{
+        List<string> categories = new List<string>();
+
+        foreach (Product p in Model)
+        {
+            if (!categories.Contains(p.Category))
+            {
+                categories.Add(p.Category);
+                <li><a asp-controller="Product" asp-action="CategoryDetails" asp-route-id="@p.Id" style="color:#10397b">@p.Category</a></li>
+            }
+        }
+    }
+</ul>

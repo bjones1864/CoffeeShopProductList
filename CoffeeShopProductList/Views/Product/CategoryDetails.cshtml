@@ -1,0 +1,19 @@
+﻿@model List<Product>
+
+<table>
+
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+    </tr>
+
+    @{
+        foreach(Product p in Model)
+        {
+            <tr>
+                <td><a asp-controller="Product" asp-action="Details" asp-route-id="@p.Id" style="color:#10397b">@p.Name</a></td>
+                <td>@String.Format("{0:0.00}", p.Price)</td>
+            </tr>
+        }
+    }
+</table>
